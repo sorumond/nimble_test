@@ -1,0 +1,52 @@
+.contact-page {
+    display: flex;
+    justify-content: center;
+    padding-top: 32px;
+}
+
+.contact-page__container {
+    width: 431px;
+    font-weight: 500;
+}
+
+.contact-page__back-button{
+    margin-bottom: 30px !important;
+}
+
+.contact-page__main-info {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 26px;
+}
+
+.contact-page__avatar{
+    width: 83px;
+    height: 83px;
+    margin-right: 12px;
+}
+
+.contact-page__text-field {
+    margin-bottom: 16px !important;
+}
+
+.contact-page__tags{
+    margin-bottom: 16px;
+}
+
+.contact-page__tags-container{
+    display: flex;
+}
+
+.contact-page__tag {
+    margin-right: 8px;
+    border-radius: 4px;
+    padding: 0px 12px;
+    font-size: 13px;
+    color: #000000;
+    background-color: #A6A6A6;
+}
+
+.contact-page__add-button {
+    width: 100%;
+}
