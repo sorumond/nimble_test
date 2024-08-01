@@ -1,0 +1,17 @@
+.create-contact {
+    width: 280px;
+}
+
+.create-contact__title{
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.create-contact__field {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.create-contact__button {
+    width: 100%;
+}
