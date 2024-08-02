@@ -1,6 +1,7 @@
-// Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-// Define a service using a base URL and expected endpoints
+
+const autorizationKey = 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn'
+
 export const contactsApi = createApi({
     reducerPath: 'contactsApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/' }),
@@ -10,8 +11,9 @@ export const contactsApi = createApi({
             query: () => ({
                 url: 'contacts',
                 headers: {
-                    'Authorization': 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn'
-                }
+                    Authorization: autorizationKey,
+                },
+                sort: 'created:desc'
             }),
             providesTags: ['Contacts'],
         }),
@@ -19,17 +21,17 @@ export const contactsApi = createApi({
             query: (id: string) => ({
                 url: `contact/${id}`,
                 headers: {
-                    'Authorization': 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn'
+                    'Authorization': autorizationKey
                 }
             }),
             providesTags: ['Contact'],
         }),
-        addContacts: builder.mutation({
+        addContact: builder.mutation({
             query: (body) => ({
                 url: 'contact',
                 method: 'POST',
                 headers: {
-                    'Authorization': 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn'
+                    'Authorization': autorizationKey
                 },
                 body
             }),
@@ -40,7 +42,7 @@ export const contactsApi = createApi({
                 url: `contact/${id}`,
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn'
+                    'Authorization': autorizationKey
                 }
             }),
             invalidatesTags: ['Contacts'],
@@ -50,7 +52,7 @@ export const contactsApi = createApi({
                 url: `contacts/${body.contact_id}/tags`,
                 method: 'PUT',
                 headers: {
-                    'Authorization': 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn'
+                    'Authorization': autorizationKey
                 },
                 body
             }),
@@ -60,6 +62,4 @@ export const contactsApi = createApi({
     }),
 })
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useGetContactsQuery, useGetContactQuery, useAddContactsMutation, useDeleteContactMutation, usePutTagToContactMutation } = contactsApi
+export const { useGetContactsQuery, useGetContactQuery, useAddContactMutation, useDeleteContactMutation, usePutTagToContactMutation } = contactsApi

@@ -2,7 +2,7 @@ import './ContactsList.css'
 import { IconButton } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import { useDeleteContactMutation, useGetContactsQuery } from "../../services/contacts";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export interface IGetContact {
     data: IContactsList
@@ -44,7 +44,7 @@ function ContactsList() {
                 {data?.resources && data.resources.map((contact) => {
                     return (
                         <div key={contact.id} className="contact-item" >
-                            <Link to={`contact/${contact.id}`}>
+                            <NavLink to={`contact/${contact.id}`}>
                                 <div className="contact-item__main-info">
                                     <img className="contact-item__avatar" src={`${contact?.avatar_url}`} />
                                     <div className="contact-item__text-info">
@@ -61,7 +61,7 @@ function ContactsList() {
                                         )
                                     })}
                                 </div>
-                            </Link>
+                            </NavLink>
                             <IconButton onClick={(event) => {
                                 onDeleteButton(contact.id)
                                 event.stopPropagation();

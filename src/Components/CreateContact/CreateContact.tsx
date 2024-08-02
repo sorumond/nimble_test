@@ -1,8 +1,9 @@
 import { Button, TextField } from "@mui/material"
 import { useState } from "react";
-import { useAddContactsMutation } from "../../services/contacts";
+import { useAddContactMutation } from "../../services/contacts";
 import './CreateContact.css'
 import { IContactFields } from "../ContactsList/ContactsList";
+import { validateEmailHelper } from "../../helpers/helpers";
 
 interface IContactData {
     [key: string]: any,
@@ -15,7 +16,7 @@ function CreateContant() {
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState(false);
     const [nameError, setNameError] = useState(false);
-    const [addContact] = useAddContactsMutation();
+    const [addContact] = useAddContactMutation();
 
     function onSubmit(): void {
         if (validate()) {
@@ -39,6 +40,7 @@ function CreateContant() {
                 contactData.fields['email'] = [{ value: email, modifier: '', label: 'email' }]
 
             addContact(contactData);
+            console.log(contactData);
             resetFields();
         }
     }
@@ -50,13 +52,13 @@ function CreateContant() {
     }
 
     function validate() {
-        if ((firstName || lastName) && validateEmail(email)) {
+        if ((firstName || lastName) && validateEmailHelper(email)) {
             setNameError(false);
             setEmailError(false);
             return true;
         } else {
             setNameError(firstName === '' && lastName === '');
-            setEmailError(validateEmail(email) ? false : true)
+            setEmailError(validateEmailHelper(email) ? false : true)
             return false
         }
     }
@@ -80,10 +82,5 @@ function CreateContant() {
         </div >
     )
 }
-
-const validateEmail = (email: string) => {
-    // eslint-disable-next-line
-    return email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-};
 
 export default CreateContant
