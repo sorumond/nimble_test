@@ -4,8 +4,33 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useDeleteContactMutation, useGetContactsQuery } from "../../services/contacts";
 import { Link } from "react-router-dom";
 
+export interface IGetContact {
+    data: IContactsList
+}
+
+interface IContactsList {
+    resources: Array<IContact>
+}
+
+interface IContact {
+    id: string,
+    avatar_url: string,
+    tags: Array<{
+        id: string,
+        tag: string
+    }>,
+    tags2: Array<string>,
+    fields: IContactFields
+}
+
+export interface IContactFields {
+    ["first name"]?: Array<{ [key: string]: string }>,
+    ["last name"]?: Array<{ [key: string]: string }>,
+    ["email"]?: Array<{ [key: string]: string }>
+}
+
 function ContactsList() {
-    const { data } = useGetContactsQuery('')
+    const { data } = useGetContactsQuery<IGetContact>('')
     const [deleteContact] = useDeleteContactMutation();
 
     function onDeleteButton(contactId: string) {
@@ -36,10 +61,14 @@ function ContactsList() {
                                         )
                                     })}
                                 </div>
-                                <IconButton onClick={() => { onDeleteButton(contact.id) }} className="contact-item__delete-button">
-                                    <CloseIcon></CloseIcon>
-                                </IconButton>
                             </Link>
+                            <IconButton onClick={(event) => {
+                                onDeleteButton(contact.id)
+                                event.stopPropagation();
+                            }}
+                                className="contact-item__delete-button">
+                                <CloseIcon></CloseIcon>
+                            </IconButton>
                         </div>
                     )
                 })}

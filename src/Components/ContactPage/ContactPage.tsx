@@ -3,11 +3,12 @@ import { useGetContactQuery, usePutTagToContactMutation } from "../../services/c
 import { useNavigate, useParams } from "react-router-dom";
 import './ContactPage.css';
 import { useState } from "react";
+import { IGetContact } from "../ContactsList/ContactsList";
 
 
 function ContactPage() {
     const contactId = useParams().contactId;
-    const { data } = useGetContactQuery(`${contactId}`);
+    const { data } = useGetContactQuery<IGetContact>(`${contactId}`);
     const [putTagToContact] = usePutTagToContactMutation()
     const [tagsString, setTagsString] = useState('');
     const navigate = useNavigate();
@@ -29,14 +30,13 @@ function ContactPage() {
 
     return (
         <div className="contact-page">
-
             {data &&
                 <div className="contact-page__container">
                     <Button variant="outlined" className="contact-page__back-button" onClick={onBackButtonClick}>Back</Button>
                     <div className="contact-page__main-info">
                         <img className="contact-page__avatar" src={`${data.resources[0].avatar_url}`} />
                         <div className="contact-page__text-info">
-                            <div className="contact-page__name">{data.resources[0].fields['first name']?.[0].value} {data.resources[0].fields['second name']?.[0].value}</div>
+                            <div className="contact-page__name">{data.resources[0].fields['first name']?.[0].value} {data.resources[0].fields['last name']?.[0].value}</div>
                             <div className="contact-page__email">{data.resources[0].fields['email']?.[0].value}</div>
                         </div>
                     </div>
