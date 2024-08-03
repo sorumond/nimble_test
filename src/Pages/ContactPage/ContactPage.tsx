@@ -1,9 +1,9 @@
+import './ContactPage.css';
 import { Button, TextField } from "@mui/material";
 import { useGetContactQuery, usePutTagToContactMutation } from "../../services/contacts";
 import { useNavigate, useParams } from "react-router-dom";
-import './ContactPage.css';
 import { useState } from "react";
-import { IGetContact } from "../ContactsList/ContactsList";
+import { IGetContact } from "../../Components/ContactsList/ContactsList";
 
 
 function ContactPage() {

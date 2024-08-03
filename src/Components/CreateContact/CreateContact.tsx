@@ -1,7 +1,7 @@
+import './CreateContact.css'
 import { Button, TextField } from "@mui/material"
 import { useState } from "react";
 import { useAddContactMutation } from "../../services/contacts";
-import './CreateContact.css'
 import { IContactFields } from "../ContactsList/ContactsList";
 import { validateEmailHelper } from "../../helpers/helpers";
 
@@ -66,12 +66,12 @@ function CreateContant() {
         <div className="create-contact">
             <div className="create-contact__title">Create Contact</div>
             <div className="create-contact__field">
-                <div className="">First Name</div>
-                <TextField fullWidth error={nameError} helperText={nameError ? "First Name or Second Name required" : ""} value={firstName} onChange={(event) => { setFirstName(event.target.value) }}></TextField>
+                <div className="">First name</div>
+                <TextField fullWidth error={nameError} helperText={nameError ? "First name or Last name required" : ""} value={firstName} onChange={(event) => { setFirstName(event.target.value) }}></TextField>
             </div>
             <div className="create-contact__field">
-                <div className="">Last Name</div>
-                <TextField fullWidth error={nameError} helperText={nameError ? "First Name or Second Name required" : ""} value={lastName} onChange={(event) => { setlastName(event.target.value) }}></TextField>
+                <div className="">Last name</div>
+                <TextField fullWidth error={nameError} helperText={nameError ? "First name or Last name required" : ""} value={lastName} onChange={(event) => { setlastName(event.target.value) }}></TextField>
             </div>
             <div className="create-contact__field">
                 <div className="">Email</div>

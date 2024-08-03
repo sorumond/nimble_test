@@ -1,15 +1,15 @@
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
 import './index.css'
 import { Provider } from 'react-redux'
 import { store } from './store.ts'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import ContactPage from './Components/ContactPage/ContactPage.tsx'
+import ContactPage from './Pages/ContactPage/ContactPage.tsx'
+import MainPage from './Pages/MainPage/MainPage.tsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: <MainPage></MainPage>,
     children: [
 
     ]
