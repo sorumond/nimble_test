@@ -25,7 +25,7 @@ export function ContactItem(props: { contact: IContact }) {
         deleteContact(contactId);
     }
     return (
-        <div key={contact.id} className="contact-item" >
+        <div className="contact-item" >
             <NavLink to={`contact/${contact.id}`}>
                 <div className="contact-item__main-info">
                     <img className="contact-item__avatar" src={`${contact?.avatar_url}`} />

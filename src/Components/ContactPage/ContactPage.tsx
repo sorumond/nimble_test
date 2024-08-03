@@ -14,10 +14,6 @@ function ContactPage() {
     const navigate = useNavigate();
 
     function onAddTagButtonClick() {
-        console.log({
-            contact_id: `${contactId}`,
-            tags: tagsString.split(' ')
-        })
         putTagToContact({
             contact_id: `${contactId}`,
             tags: tagsString.split(' ')

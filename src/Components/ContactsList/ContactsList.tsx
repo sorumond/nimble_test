@@ -25,7 +25,7 @@ function ContactsList() {
             <div className="contacts-list__container">
                 {data?.resources && data.resources.map((contact) => {
                     return (
-                        <ContactItem contact={contact}></ContactItem>
+                        <ContactItem key={contact.id} contact={contact}></ContactItem>
                     )
                 })}
             </div>

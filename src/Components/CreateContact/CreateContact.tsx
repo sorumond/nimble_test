@@ -40,7 +40,6 @@ function CreateContant() {
                 contactData.fields['email'] = [{ value: email, modifier: '', label: 'email' }]
 
             addContact(contactData);
-            console.log(contactData);
             resetFields();
         }
     }
