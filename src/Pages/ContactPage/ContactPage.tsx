@@ -3,7 +3,7 @@ import { Button, TextField } from "@mui/material";
 import { useGetContactQuery, usePutTagToContactMutation } from "../../services/contacts";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
-import { IGetContact } from "../../Components/ContactsList/ContactsList";
+import { IGetContact } from '../../interfaces/interfaces';
 
 
 function ContactPage() {
