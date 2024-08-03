@@ -1,20 +1,7 @@
 import './ContactsList.css'
 import { useGetContactsQuery } from "../../services/contacts";
-import { ContactItem, IContact } from './ContactItem/ContactItem';
-
-export interface IGetContact {
-    data: IContactsList
-}
-
-interface IContactsList {
-    resources: Array<IContact>
-}
-
-export interface IContactFields {
-    ["first name"]?: Array<{ [key: string]: string }>,
-    ["last name"]?: Array<{ [key: string]: string }>,
-    ["email"]?: Array<{ [key: string]: string }>
-}
+import { ContactItem } from './ContactItem/ContactItem';
+import { IGetContact } from '../../interfaces/interfaces';
 
 function ContactsList() {
     const { data } = useGetContactsQuery<IGetContact>('')

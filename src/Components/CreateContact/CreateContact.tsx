@@ -2,13 +2,8 @@ import './CreateContact.css'
 import { Button, TextField } from "@mui/material"
 import { useState } from "react";
 import { useAddContactMutation } from "../../services/contacts";
-import { IContactFields } from "../ContactsList/ContactsList";
 import { validateEmailHelper } from "../../helpers/helpers";
-
-interface IContactData {
-    [key: string]: any,
-    fields: IContactFields
-}
+import { IContactData } from '../../interfaces/interfaces';
 
 function CreateContant() {
     const [firstName, setFirstName] = useState('');

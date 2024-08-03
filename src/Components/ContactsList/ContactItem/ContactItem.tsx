@@ -1,22 +1,10 @@
 import './ContactItem.css';
 import { NavLink } from "react-router-dom"
-import { IContactFields } from "../ContactsList"
 import { IconButton } from "@mui/material"
 import CloseIcon from '@mui/icons-material/Close';
 import { useDeleteContactMutation } from "../../../services/contacts";
 import { useState } from "react";
-
-
-export interface IContact {
-    id: string,
-    avatar_url: string,
-    tags: Array<{
-        id: string,
-        tag: string
-    }>,
-    tags2: Array<string>,
-    fields: IContactFields
-}
+import { IContact } from '../../../interfaces/interfaces';
 
 export function ContactItem(props: { contact: IContact }) {
     const [deleteContact] = useDeleteContactMutation();
