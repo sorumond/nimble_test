@@ -1,3 +1,4 @@
+import './ContactItem.css';
 import { NavLink } from "react-router-dom"
 import { IContactFields } from "../ContactsList"
 import { IconButton } from "@mui/material"
