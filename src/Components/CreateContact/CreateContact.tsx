@@ -68,15 +68,15 @@ function CreateContant() {
             <div className="create-contact__title">Create Contact</div>
             <div className="create-contact__field">
                 <div className="">First Name</div>
-                <TextField fullWidth error={nameError} helperText={'First Name or Second Name required'} className="" value={firstName} onChange={(event) => { setFirstName(event.target.value) }}></TextField>
+                <TextField fullWidth error={nameError} helperText={nameError ? "First Name or Second Name required" : ""} value={firstName} onChange={(event) => { setFirstName(event.target.value) }}></TextField>
             </div>
             <div className="create-contact__field">
                 <div className="">Last Name</div>
-                <TextField fullWidth error={nameError} helperText={'First Name or Second Name required'} className="" value={lastName} onChange={(event) => { setlastName(event.target.value) }}></TextField>
+                <TextField fullWidth error={nameError} helperText={nameError ? "First Name or Second Name required" : ""} value={lastName} onChange={(event) => { setlastName(event.target.value) }}></TextField>
             </div>
             <div className="create-contact__field">
                 <div className="">Email</div>
-                <TextField fullWidth error={emailError} helperText={'valid email required'} className="" value={email} onChange={(event) => { setEmail(event.target.value) }}></TextField>
+                <TextField fullWidth error={emailError} helperText={emailError ? "Invalid email address" : ""} value={email} onChange={(event) => { setEmail(event.target.value) }}></TextField>
             </div>
             <Button variant="outlined" className="create-contact__button" onClick={onSubmit}>Add Contact</Button>
         </div >

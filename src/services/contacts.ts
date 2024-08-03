@@ -13,7 +13,9 @@ export const contactsApi = createApi({
                 headers: {
                     Authorization: autorizationKey,
                 },
-                sort: 'created:desc'
+                params: {
+                    sort: 'created:desc'
+                }
             }),
             providesTags: ['Contacts'],
         }),
