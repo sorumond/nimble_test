@@ -10,9 +10,9 @@ function ContactsList() {
         <div className="contacts-list">
             <div className="contacts-list__title">Contacts List</div>
             <div className="contacts-list__container">
-                {data?.resources && data.resources.map((contact) => {
+                {data?.users && data.users.map((contact) => {
                     return (
-                        <ContactItem key={contact.id} contact={contact}></ContactItem>
+                        <ContactItem key={contact.uuid} contact={contact}></ContactItem>
                     )
                 })}
             </div>

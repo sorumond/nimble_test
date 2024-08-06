@@ -3,17 +3,13 @@ export interface IGetContact {
 }
 
 export interface IContactsList {
-    resources: Array<IContact>
+    users: Array<IContact>
 }
 
 export interface IContact {
-    id: string,
+    uuid: string,
     avatar_url: string,
-    tags: Array<{
-        id: string,
-        tag: string
-    }>,
-    tags2: Array<string>,
+    tags: Array<string>
     fields: IContactFields
 }
 

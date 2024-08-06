@@ -15,7 +15,7 @@ export function ContactItem(props: { contact: IContact }) {
     }
     return (
         <div className="contact-item" >
-            <NavLink to={`contact/${contact.id}`}>
+            <NavLink to={`contact/${contact.uuid}`}>
                 <div className="contact-item__main-info">
                     <img className="contact-item__avatar" src={`${contact?.avatar_url}`} />
                     <div className="contact-item__text-info">
@@ -26,15 +26,15 @@ export function ContactItem(props: { contact: IContact }) {
                     </div>
                 </div>
                 <div className="contact-item__tags-container">
-                    {contact?.tags2 && contact?.tags2.map((tag) => {
+                    {contact?.tags && contact?.tags.map((tag) => {
                         return (
-                            <div key={`${contact.id}_${tag}`} className="contact-item__tag">{tag}</div>
+                            <div key={`${contact.uuid}_${tag}`} className="contact-item__tag">{tag}</div>
                         )
                     })}
                 </div>
             </NavLink>
             <IconButton onClick={(event) => {
-                onDeleteButton(contact.id)
+                onDeleteButton(contact.uuid)
                 event.stopPropagation();
             }}
                 className="contact-item__delete-button">

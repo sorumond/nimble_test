@@ -15,7 +15,7 @@ function ContactPage() {
 
     function onAddTagButtonClick() {
         putTagToContact({
-            contact_id: `${contactId}`,
+            uuid: `${contactId}`,
             tags: tagsString.split(' ')
         })
     }
@@ -30,18 +30,18 @@ function ContactPage() {
                 <div className="contact-page__container">
                     <Button variant="outlined" className="contact-page__back-button" onClick={onBackButtonClick}>Back</Button>
                     <div className="contact-page__main-info">
-                        <img className="contact-page__avatar" src={`${data.resources[0].avatar_url}`} />
+                        <img className="contact-page__avatar" src={`${data.users[0].avatar_url}`} />
                         <div className="contact-page__text-info">
-                            <div className="contact-page__name">{data.resources[0].fields['first name']?.[0].value} {data.resources[0].fields['last name']?.[0].value}</div>
-                            <div className="contact-page__email">{data.resources[0].fields['email']?.[0].value}</div>
+                            <div className="contact-page__name">{data.users[0].fields['first name']?.[0].value} {data.users[0].fields['last name']?.[0].value}</div>
+                            <div className="contact-page__email">{data.users[0].fields['email']?.[0].value}</div>
                         </div>
                     </div>
                     <div className="contact-page__tags">
                         <div className="contact-page__tags-title">Tags</div>
                         <div className="contact-page__tags-container">
-                            {data.resources[0].tags.map((tag) => {
+                            {data.users[0].tags.map((tag) => {
                                 return (
-                                    <div key={tag.id} className="contact-page__tag">{tag.tag}</div>
+                                    <div key={tag} className="contact-page__tag">{tag}</div>
                                 )
                             })}
                         </div>

@@ -4,17 +4,15 @@ const autorizationKey = 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn'
 
 export const contactsApi = createApi({
     reducerPath: 'contactsApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://contacts-list-server.onrender.com/' }),
     tagTypes: ['Contacts', 'Contact'],
     endpoints: (builder) => ({
         getContacts: builder.query({
             query: () => ({
-                url: 'contacts',
+                url: '/contacts',
                 headers: {
                     Authorization: autorizationKey,
-                },
-                params: {
-                    sort: 'created:desc'
+                    "accepts": "application/json"
                 }
             }),
             providesTags: ['Contacts'],
@@ -30,7 +28,7 @@ export const contactsApi = createApi({
         }),
         addContact: builder.mutation({
             query: (body) => ({
-                url: 'contact',
+                url: `contact/`,
                 method: 'POST',
                 headers: {
                     'Authorization': autorizationKey
@@ -51,7 +49,7 @@ export const contactsApi = createApi({
         }),
         putTagToContact: builder.mutation({
             query: (body) => ({
-                url: `contacts/${body.contact_id}/tags`,
+                url: `contact/${body.uuid}/tags`,
                 method: 'PUT',
                 headers: {
                     'Authorization': autorizationKey

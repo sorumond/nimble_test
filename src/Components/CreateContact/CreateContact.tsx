@@ -25,8 +25,10 @@ function CreateContant() {
                 fields: {}
             }
 
-            if (firstName)
+            if (firstName) {
                 contactData.fields['first name'] = [{ value: firstName, modifier: '', label: 'first name' }]
+                contactData.name = firstName;
+            }
 
             if (lastName)
                 contactData.fields['last name'] = [{ value: lastName, modifier: '', label: 'last name' }]

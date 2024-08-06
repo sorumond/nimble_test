@@ -1,6 +1,6 @@
 {
   "name": "nimble_test",
-  "proxy": "https://live.devnimble.com",
+  "proxy": "localhost:3000",
   "homepage": "https://sorumond.github.io/nimble_test",
   "private": true,
   "version": "0.0.0",
